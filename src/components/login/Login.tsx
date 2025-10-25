@@ -7,6 +7,7 @@ import { message } from "antd";
 import { useUserLoginMutation } from "@/rtk/features/api/authApi";
 import { useRouter } from "next/navigation";
 import { storeUserInfo } from "@/services/auth.service";
+import Link from "next/link";
 
 const Login = () => {
   const [userLogin] = useUserLoginMutation();
@@ -58,6 +59,14 @@ const Login = () => {
             <button type="submit">Login</button>
           </div>
         </Form>
+        <div className={styles.linkSection}>
+          <span className="text-sm text-gray-600">
+            Don't have an account?{" "}
+            <Link href="/register" className="">
+              Sign up
+            </Link>
+          </span>
+        </div>
       </div>
     </section>
   );
