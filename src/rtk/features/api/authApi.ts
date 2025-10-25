@@ -18,7 +18,11 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
         data: signupData,
       }),
-      invalidatesTags: [tagTypes.auth],
+      invalidatesTags: [
+        tagTypes.auth,
+        tagTypes.profile,
+        tagTypes.credit_activity,
+      ],
     }),
   }),
 });
