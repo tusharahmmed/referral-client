@@ -5,6 +5,7 @@ export interface IMeta {
   limit: number;
   page: number;
   total: number;
+  totalPage: number;
 }
 
 export type ResponseSuccessType = {
@@ -36,5 +37,15 @@ export interface IUser {
   createdAt: string;
   updatedAt: string;
 }
+export type ICourse = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  instructor: string;
+  thumbnail: string;
+  createdAt: string;
+  updatedAt: string;
+};
 
 export type NotificationType = "success" | "info" | "warning" | "error";

@@ -1,5 +1,5 @@
 import { type MenuProps } from "antd";
-import { ProfileOutlined, UserOutlined } from "@ant-design/icons";
+import { ProfileOutlined, TableOutlined, UserOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "./role";
 
@@ -33,6 +33,11 @@ export const sidebarItems = (role: string, permissions: string[]) => {
 
   const superAdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
+    {
+      label: <Link href={`/${role}/course`}>Course</Link>,
+      icon: <TableOutlined />,
+      key: `/${role}/course`,
+    },
     {
       label: <Link href={`/${role}/user`}>Manage User</Link>,
       icon: <UserOutlined />,
