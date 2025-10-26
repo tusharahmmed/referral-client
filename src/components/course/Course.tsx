@@ -24,10 +24,15 @@ const Course = () => {
 
   const { data, isLoading } = useGetAllCourseQuery(undefined);
 
-  const [placeOrder, { data: orderData }] = usePlaceOrderMutation();
+  const [placeOrder, { data: orderData, isSuccess }] = usePlaceOrderMutation();
 
-  console.log("=========", orderData);
-  useEffect(() => {}, [orderData]);
+  useEffect(() => {
+    if (isSuccess) {
+      notification.success({
+        message: "Course Ordered!",
+      });
+    }
+  }, [isSuccess]);
 
   const userDetials = getUserInfo() as any;
 
