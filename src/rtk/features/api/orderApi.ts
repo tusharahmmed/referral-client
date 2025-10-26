@@ -1,3 +1,4 @@
+import { tagTypes } from "@/rtk/tag-types";
 import { baseApi } from "./baseApi";
 
 export const orederApi = baseApi.injectEndpoints({
@@ -8,6 +9,7 @@ export const orederApi = baseApi.injectEndpoints({
         method: "POST",
         data: payload,
       }),
+      invalidatesTags: [tagTypes.profile, tagTypes.credit_activity],
     }),
   }),
 });
