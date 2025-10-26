@@ -1,12 +1,11 @@
 # Referral System - Frontend
 
-A modern, responsive frontend application for the Referral System built with React. This application provides a seamless user interface for managing referrals, purchasing courses, and tracking credit rewards.
+A modern, responsive frontend application for the Referral System built with Next.js. This application provides a seamless user interface for managing referrals, purchasing courses, and tracking credit rewards.
 
 ## 📋 Table of Contents
 
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
-- [System Architecture](#-system-architecture)
 - [Getting Started](#-getting-started)
 - [Environment Variables](#-environment-variables)
 - [Installation](#-installation)
@@ -32,20 +31,6 @@ A modern, responsive frontend application for the Referral System built with Rea
 - **RTK Query** - Data fetching and caching
 - **Redux Toolkit** - State management
 
-## 🏗️ System Architecture
-
-### UML Diagram
-
-The complete system flow and user interactions:
-
-![UML Flow Diagram](./uml-diagram.svg)
-
-### Database Schema
-
-Backend database structure and relationships:
-
-![ER Diagram](./er-diagram.svg)
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -62,7 +47,6 @@ Create a `.env` file in the root directory:
 # API Configuration
 NEXT_PUBLIC_DOMAIN=http://localhost:3000
 NEXT_PUBLIC_BASE_API_URL=http://localhost:5000/api/v1
-
 ```
 
 ## 📦 Installation
@@ -99,7 +83,6 @@ yarn build
 
 # Start production server
 yarn start
-
 ```
 
 ## 🔗 Server Repository
@@ -110,9 +93,11 @@ This frontend connects to the Referral System backend API.
 
 ### Server Details
 
-- **API Base URL**: `http://localhost:3000/api`
-- **API Documentation**: `http://localhost:3000/api-docs`
+- **API Base URL**: `http://localhost:5000/api/v1`
+- **API Documentation**: `http://localhost:5000/api-docs`
 - **Tech Stack**: Node.js, Express, TypeScript, MongoDB
 - **Authentication**: JWT with refresh tokens
+
+---
 
 **Built with ❤️ using Next.js, TypeScript, and Tailwind CSS**
