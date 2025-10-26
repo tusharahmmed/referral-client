@@ -1,20 +1,25 @@
+import { getDomain } from "@/helpers/config/envConfig";
 import DashboardLayout from "@/layouts/DashboardLayout";
 import { useGetCreditActivityQuery } from "@/rtk/features/api/creditActivityApi";
-import { useGetProfileStatsQuery } from "@/rtk/features/api/userApi";
+import {
+  useGetProfileDetailsQuery,
+  useGetProfileStatsQuery,
+} from "@/rtk/features/api/userApi";
 import { notification } from "antd";
 import React from "react";
 
 const Profile = () => {
   const { data: referralData } = useGetProfileStatsQuery(undefined);
+  const { data: profileDetails } = useGetProfileDetailsQuery(undefined);
 
   const { data: creditActivities } = useGetCreditActivityQuery(undefined);
 
   // code
-  const referralCode = "FILESURE25";
+  const referralCode = profileDetails?.referral_code;
 
   const handleCopyReferralCode = () => {
     navigator.clipboard
-      .writeText(referralCode)
+      .writeText(`${getDomain()}/register?ref=${referralCode}`)
       .then(() => {
         notification.success({
           message: "Referral Code Copied!",
@@ -25,7 +30,7 @@ const Profile = () => {
       })
       .catch(() => {
         const textArea = document.createElement("textarea");
-        textArea.value = referralCode;
+        textArea.value = `${getDomain()}/register?ref=${referralCode}`;
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("copy");

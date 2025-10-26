@@ -12,7 +12,15 @@ export const userApi = baseApi.injectEndpoints({
       providesTags: [tagTypes.profile],
       keepUnusedDataFor: 1000,
     }),
+    getProfileDetails: build.query({
+      query: () => ({
+        url: `${USER}/profile-details`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.profile],
+      keepUnusedDataFor: 1000,
+    }),
   }),
 });
 
-export const { useGetProfileStatsQuery } = userApi;
+export const { useGetProfileStatsQuery, useGetProfileDetailsQuery } = userApi;
