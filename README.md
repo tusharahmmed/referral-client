@@ -1,36 +1,118 @@
-# 4U Logistics
+# Referral System - Frontend
 
-A Logistics Web Application using `NEXT.js`
+A modern, responsive frontend application for the Referral System built with React. This application provides a seamless user interface for managing referrals, purchasing courses, and tracking credit rewards.
 
-## Demo
+## 📋 Table of Contents
 
-[Live Preview](https://4u-frontend.vercel.app/)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [System Architecture](#-system-architecture)
+- [Getting Started](#-getting-started)
+- [Environment Variables](#-environment-variables)
+- [Installation](#-installation)
+- [Available Scripts](#-available-scripts)
+- [Server Repository](#-server-repository)
 
-## Screenshots
+## ✨ Features
 
-![screenshot](https://github.com/tusharahmmed/4u_logistics_frontend/blob/main/screenshot1.png)
+- **User Authentication**: Secure login and registration with JWT
+- **Referral Dashboard**: Track referrals, conversions, and earned credits
+- **Course Marketplace**: Browse and purchase available courses
+- **Referral Code Sharing**: Generate and share unique referral links
+- **Real-time Statistics**: View referral performance metrics
+- **Admin Panel**: Course management for Super Admin users
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 
-## Features
+## 🛠️ Tech Stack
 
-- Fully Functional Web Application using `Next.js`
-- Visitors can submit quotation for shipment, custome can submit delivery requests etc.
-- It has role based dashboard options where super admin can manage all website operations and crate new admin with specific permissions.
+- **Next.js** - UI Framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Axios** - HTTP client
+- **RTK Query** - Data fetching and caching
+- **Redux Toolkit** - State management
 
-## Technology Used
+## 🏗️ System Architecture
 
-`Next.js` `typescript` `tailwindcss` `scss` `antd` `redux-toolkit` `axios` `react-hook-form` `yup` `jwt-decode`
+### UML Diagram
 
-## Environment Variables
+The complete system flow and user interactions:
 
-To run this project, you will need to add the following environment variables to your .env.local file.
-These all are firebase credentials.
+![UML Flow Diagram](./uml-diagram.svg)
 
-`NEXT_PUBLIC_BASE_API_URL`=backend_base_url
+### Database Schema
 
-## Backend of this project
+Backend database structure and relationships:
 
-[Backend Repository](https://github.com/tusharahmmed/4u_logistics_backend)
+![ER Diagram](./er-diagram.svg)
 
-## Copyright
+## 🚀 Getting Started
 
-© Copyright 2022 all right reserved [Tushar Ahmmed](https://github.com/tusharahmmed)
+### Prerequisites
+
+- Node.js >= 22.x
+- yarn or npm
+- Running backend server (see [Server Repository](#-server-repository))
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# API Configuration
+NEXT_PUBLIC_DOMAIN=http://localhost:3000
+NEXT_PUBLIC_BASE_API_URL=http://localhost:5000/api/v1
+
+```
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/tusharahmmed/referral-client.git
+
+# Navigate to project directory
+cd referral-client
+
+# Install dependencies
+yarn install
+
+# Copy environment variables
+cp .env.example .env
+
+# Configure your .env file with API settings
+
+# Start development server
+yarn dev
+```
+
+The application will be available at `http://localhost:3000`
+
+## 📜 Available Scripts
+
+```bash
+# Start development server
+yarn dev
+
+# Build for production
+yarn build
+
+# Start production server
+yarn start
+
+```
+
+## 🔗 Server Repository
+
+This frontend connects to the Referral System backend API.
+
+**Backend Repository**: [https://github.com/tusharahmmed/referral-server](https://github.com/tusharahmmed/referral-server)
+
+### Server Details
+
+- **API Base URL**: `http://localhost:3000/api`
+- **API Documentation**: `http://localhost:3000/api-docs`
+- **Tech Stack**: Node.js, Express, TypeScript, MongoDB
+- **Authentication**: JWT with refresh tokens
+
+**Built with ❤️ using Next.js, TypeScript, and Tailwind CSS**
