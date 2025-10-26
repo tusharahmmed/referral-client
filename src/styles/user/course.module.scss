@@ -1,0 +1,364 @@
+// styles/courses.module.scss
+@import '../_mixin.scss'; // Import your mixins file
+
+// Fixed width variables
+$card-min-width: 280px;
+$card-max-width: 320px;
+$container-max-width: 1440px;
+
+.coursesContainer {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 2rem 0;
+
+  .container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+}
+
+.backButton {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+}
+
+.coursesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($card-min-width, $card-max-width));
+  gap: 1.5rem;
+  justify-items: center;
+
+  // Responsive adjustments using mixins
+  @include xl {
+    grid-template-columns: repeat(auto-fit, minmax($card-min-width, $card-max-width));
+    justify-content: center;
+  }
+
+  @include lg {
+    grid-template-columns: repeat(auto-fit, minmax($card-min-width, 300px));
+    gap: 1.25rem;
+  }
+
+  @include md {
+    grid-template-columns: repeat(2, minmax($card-min-width, 1fr));
+    gap: 1rem;
+  }
+
+  @include sm {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @include xs {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+    max-width: 350px;
+  }
+}
+
+.cardContainer {
+  width: 100%;
+  max-width: $card-max-width;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include sm {
+    max-width: 400px;
+  }
+
+  @include xs {
+    max-width: 350px;
+  }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  :global(.ant-card-body) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  :global(.ant-card-cover) {
+    flex-shrink: 0;
+  }
+
+  :global(.ant-card-actions) {
+    flex-shrink: 0;
+    padding: 0.75rem;
+  }
+}
+
+.cardImageContainer {
+  height: 12rem;
+  background-color: #e5e7eb;
+  position: relative;
+  flex-shrink: 0;
+
+  @include md {
+    height: 11rem;
+  }
+
+  @include sm {
+    height: 10rem;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .priceBadge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px; // Fixed minimum height for content
+
+  @include md {
+    min-height: 170px;
+  }
+
+  @include sm {
+    min-height: 160px;
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  
+  .titleText {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    @include sm {
+      font-size: 1rem;
+    }
+  }
+}
+
+.cardDescription {
+  flex: 1;
+  margin-bottom: 0.75rem;
+  
+  .descriptionText {
+    color: #6b7280;
+    font-size: 0.875rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+    
+    @include sm {
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+.cardMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: auto;
+
+  .instructor {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+
+    .starIcon {
+      color: #fbbf24;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.updateDate {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+
+  @include xs {
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .actionButton {
+    flex: 1;
+    font-size: 0.875rem;
+    
+    @include xs {
+      font-size: 0.8125rem;
+      height: 2.25rem;
+    }
+    
+    &:global(.ant-btn-default) {
+      border-color: #d1d5db;
+      
+      &:hover {
+        border-color: #2563eb;
+        color: #2563eb;
+      }
+    }
+    
+    &:global(.ant-btn-primary) {
+      background-color: #2563eb;
+      border-color: #2563eb;
+      
+      &:hover {
+        background-color: #1d4ed8;
+        border-color: #1d4ed8;
+      }
+    }
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 0;
+  grid-column: 1 / -1;
+
+  .emptyTitle {
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+    
+    @include sm {
+      font-size: 1.5rem;
+    }
+  }
+
+  .emptyText {
+    color: #6b7280;
+    
+    @include sm {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Additional responsive container adjustments
+.container {
+  @include xl {
+    max-width: 1200px;
+  }
+
+  @include lg {
+    max-width: 1024px;
+    padding: 0 1.5rem;
+  }
+
+  @include md {
+    max-width: 768px;
+    padding: 0 1rem;
+  }
+
+  @include sm {
+    max-width: 640px;
+    padding: 0 1rem;
+  }
+
+  @include xs {
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+}
+
+// Header responsive adjustments
+.header {
+  @include md {
+    margin-bottom: 1.5rem;
+    
+    .title {
+      font-size: 1.75rem;
+    }
+    
+    .subtitle {
+      font-size: 0.875rem;
+    }
+  }
+
+  @include sm {
+    margin-bottom: 1rem;
+    
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include xs {
+    .title {
+      font-size: 1.375rem;
+    }
+    
+    .subtitle {
+      font-size: 0.8125rem;
+    }
+  }
+}

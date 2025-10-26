@@ -1,9 +1,9 @@
 import { type MenuProps } from "antd";
-import { ProfileOutlined, TableOutlined, UserOutlined } from "@ant-design/icons";
+import { ProfileOutlined, TableOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { USER_ROLE } from "./role";
 
-export const sidebarItems = (role: string, permissions: string[]) => {
+export const sidebarItems = (role: string) => {
   const query: Record<string, any> = {};
   query["status"] = "pending";
 
@@ -21,15 +21,14 @@ export const sidebarItems = (role: string, permissions: string[]) => {
     },
   ];
 
-  // const customerItems: MenuProps["items"] = [
-  //   {
-  //     label: <Link href={`/${role}/customers`}>Manage Customer Request</Link>,
-  //     icon: <TableOutlined />,
-  //     key: `/${role}/customers`,
-  //   },
-  // ];
-
-  const userSidebarItems: MenuProps["items"] = [...defaultSidebarItems];
+  const userSidebarItems: MenuProps["items"] = [
+    ...defaultSidebarItems,
+    {
+      label: <Link href={`/${role}/course`}>Course</Link>,
+      icon: <TableOutlined />,
+      key: `/${role}/course`,
+    },
+  ];
 
   const superAdminSidebarItems: MenuProps["items"] = [
     ...defaultSidebarItems,
@@ -37,11 +36,6 @@ export const sidebarItems = (role: string, permissions: string[]) => {
       label: <Link href={`/${role}/course`}>Course</Link>,
       icon: <TableOutlined />,
       key: `/${role}/course`,
-    },
-    {
-      label: <Link href={`/${role}/user`}>Manage User</Link>,
-      icon: <UserOutlined />,
-      key: `/${role}/user`,
     },
   ];
 
