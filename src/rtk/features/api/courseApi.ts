@@ -25,6 +25,7 @@ export const courseApi = baseApi.injectEndpoints({
         };
       },
       providesTags: [tagTypes.course],
+      keepUnusedDataFor: 1000,
     }),
     deleteCouse: build.mutation({
       query: (id) => ({

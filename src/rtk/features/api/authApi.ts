@@ -10,7 +10,11 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
         data: loginData,
       }),
-      invalidatesTags: [tagTypes.auth],
+      invalidatesTags: [
+        tagTypes.auth,
+        tagTypes.profile,
+        tagTypes.credit_activity,
+      ],
     }),
     userSignup: build.mutation({
       query: (signupData) => ({
